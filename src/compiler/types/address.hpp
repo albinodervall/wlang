@@ -1,0 +1,2 @@
+typedef u64 Address;
+#define INVALID_ADDRESS 0xFFFFFFFFFFFFFFFF

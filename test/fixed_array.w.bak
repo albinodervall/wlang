@@ -1,0 +1,41 @@
+#import "library/print.w"
+
+// print_array :: (array: []i32) {
+//     for index in 0..(digits.number_of_elements - 1) {
+//         print(digits[index]);
+//     }
+// }
+
+// TODO: This doesn't work yet! We need type fields first!
+
+main :: () #entry {
+    {
+        digits: []i32 = [ 0, 0, 0, ];
+        for i in 0..(digits.number_of_elements - 1) {
+            print(digits[i]);
+        }
+    }
+
+    printf("\n\0".pointer);
+
+    {
+        digits: [3]i32 = [ 0, 0, 0, ];
+        for i in 0..(digits.number_of_elements - 1) {
+            print(digits[i]);
+        }
+    }
+
+    printf("\n\0".pointer);
+
+    {
+        digits: [3]i32;
+        for i in 0..(digits.number_of_elements - 1) {
+            print(digits[i]);
+        }
+    }
+
+    printf("Ok\n\0".pointer);
+
+    // What happens if you do digits: [3]i32 = [ 1, 2, 3, 4, ]; ???
+    // What happens if you do digits: []i32; ???
+}

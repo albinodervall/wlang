@@ -1,0 +1,12 @@
+#import "library/assert.w"
+
+f :: (): string {
+    return "Hello, world!\0\n";
+}
+
+main :: () #entry {
+    print_u64(f().number_of_bytes);
+    printf(f().pointer);
+
+    printf("Ok\n\0".pointer);
+}

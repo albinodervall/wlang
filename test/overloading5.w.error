@@ -1,0 +1,12 @@
+#import "library/assert.w"
+
+f :: (a: i32, b: i32): i32 {
+    return a + b;
+}
+
+f :: (a: i32, b: i32): u32 {
+    return 2;
+}
+
+main :: () #entry {
+}

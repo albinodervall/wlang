@@ -1,0 +1,47 @@
+printf :: (format: &u8): i32 #foreign;
+calloc :: (num: u64, size: u64): &void #foreign;
+
+modulus :: (a: i32, b: i32): i32 {
+    return a - (b * (a / b));
+}
+
+format :: (value: i32, base: i32 = 10): string {
+    digits: string = "0123456789abcdef";
+
+    result: string;
+    result.pointer = calloc(32, 1);
+    result.number_of_bytes = 0;
+
+    if value > 0 {
+        while value > 0 {
+            digit: i32 = modulus(value, base);
+            value = value / base;
+
+            result.number_of_bytes = result.number_of_bytes + 1;
+            result[result.number_of_bytes - 1] = digits[digit];
+        }
+    } else {
+        result.number_of_bytes = result.number_of_bytes + 1;
+        result[result.number_of_bytes - 1] = 0x30; // 0
+    }
+
+    // Reverse
+    for index in 0..((result.number_of_bytes / 2) - 1) {
+        temporary: u8 = result[index];
+        result[index] = result[result.number_of_bytes - 1 - index];
+        result[result.number_of_bytes - 1 - index] = temporary;
+    }
+
+    return result;
+}
+
+main :: () #entry {
+    printf(format(123, base = 2).pointer);
+    printf("\n\0".pointer);
+    printf(format(123).pointer);
+    printf("\n\0".pointer);
+    printf(format(123, base = 16).pointer);
+    printf("\n\0".pointer);
+
+    printf("Ok\n\0".pointer);
+}

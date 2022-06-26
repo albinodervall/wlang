@@ -1,0 +1,12 @@
+#import "library/print.w"
+
+main :: () #entry {
+    // TODO: This causes issues because what is the type of 2 and 3? We can't generated
+    //       code for it. Since there was nothing to inferr the type from, one could assume
+    //       this will always be able to be constant folded, in this case to false.
+    if 2 > 3 {
+        print("Incorrect\n");
+    } else {
+        print("Correct\n");
+    }
+}

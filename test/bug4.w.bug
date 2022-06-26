@@ -1,0 +1,6 @@
+// TODO: This should not compile since an unsigned integer can never be < 0
+main :: () #entry {
+    value: u64 = 2;
+    if value < 0 {
+    }
+}

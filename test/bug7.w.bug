@@ -1,0 +1,11 @@
+#import "library/print.w"
+
+main :: () {
+    key: i32 = 2;
+    action: i32 = 0;
+
+    if key == 256 && action == 1 {
+    }
+
+    print("Ok\n");
+}

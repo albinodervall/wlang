@@ -1,0 +1,17 @@
+#import "library/assert.w"
+
+f :: (a: i32, b: i32 = 2): i32 {
+    return a + b;
+}
+
+f :: (a: u32, b: u32 = 3): u32 {
+    return a * b;
+}
+
+main :: () #entry {
+    // assert(add(2, 3) == 5); // not ok, ambiguous!
+    assert(f(2 as i32) == 4);
+    assert(f(2 as u32) == 6);
+
+    print("Ok\n");
+}

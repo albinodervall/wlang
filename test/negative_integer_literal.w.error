@@ -1,0 +1,10 @@
+#import "library/assert.w"
+
+main :: () #entry {
+    a: u32 = -2;
+    a = -2;
+
+    print_u32(a);
+
+    print("Ok\n");
+}
